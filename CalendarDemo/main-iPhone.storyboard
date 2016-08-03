@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rig-xm-09W">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="sOs-3X-DPI">
+            <objects>
+                <viewController id="2hR-lJ-uEz" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LvG-Cf-elk"/>
+                        <viewControllerLayoutGuide type="bottom" id="SzC-8B-Tff"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ElL-wU-zR9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIQ-Ir-tpF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="0.94793567519999999" alpha="1" colorSpace="calibratedWhite"/>
+                            </containerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUn-JT-Rec">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Today" id="L51-DF-0tA">
+                                        <connections>
+                                            <action selector="showToday:" destination="2hR-lJ-uEz" id="sAG-51-kDg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uT8-KB-1be"/>
+                                    <barButtonItem title="Calendars" id="jb4-ur-rN3">
+                                        <connections>
+                                            <action selector="showCalendars:" destination="2hR-lJ-uEz" id="xpN-NQ-fp5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JnW-OK-2tg"/>
+                                    <barButtonItem title="⚙" id="Kp2-Jx-AfL">
+                                        <connections>
+                                            <action selector="showSettings:" destination="2hR-lJ-uEz" id="6Ba-sr-z8g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.94782162410000004" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UIQ-Ir-tpF" firstAttribute="bottom" secondItem="xUn-JT-Rec" secondAttribute="top" id="AaU-LW-FC8"/>
+                            <constraint firstAttribute="bottom" secondItem="xUn-JT-Rec" secondAttribute="bottom" id="H6W-RE-F2d"/>
+                            <constraint firstAttribute="trailing" secondItem="UIQ-Ir-tpF" secondAttribute="trailing" id="Iso-QD-m7n"/>
+                            <constraint firstItem="UIQ-Ir-tpF" firstAttribute="leading" secondItem="ElL-wU-zR9" secondAttribute="leading" id="Ji8-qn-sOi"/>
+                            <constraint firstItem="xUn-JT-Rec" firstAttribute="leading" secondItem="ElL-wU-zR9" secondAttribute="leading" id="NKX-wK-rEv"/>
+                            <constraint firstItem="UIQ-Ir-tpF" firstAttribute="top" secondItem="LvG-Cf-elk" secondAttribute="bottom" id="ReQ-uE-Biy"/>
+                            <constraint firstAttribute="trailing" secondItem="xUn-JT-Rec" secondAttribute="trailing" id="mz8-oa-ws7"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="45O-eq-qLl">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="2016" id="SQ8-0g-wKM"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="6hS-eO-sTa">
+                            <rect key="frame" x="218" y="7.5" width="164" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Week"/>
+                                <segment title="Month"/>
+                                <segment title="Year"/>
+                            </segments>
+                            <connections>
+                                <action selector="switchControllers:" destination="2hR-lJ-uEz" eventType="valueChanged" id="4Tb-tc-Ttf"/>
+                            </connections>
+                        </segmentedControl>
+                        <rightBarButtonItems>
+                            <barButtonItem title="&gt;&gt;" id="PXg-Kw-8sZ">
+                                <connections>
+                                    <action selector="nextPage:" destination="2hR-lJ-uEz" id="6X8-LZ-mEo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="&lt;&lt;" id="wYF-fk-wuf">
+                                <connections>
+                                    <action selector="previousPage:" destination="2hR-lJ-uEz" id="Pw9-fc-kPo"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="UIQ-Ir-tpF" id="fwo-It-Omh"/>
+                        <outlet property="currentDateLabel" destination="7CX-DX-AlJ" id="bgE-8b-eGn"/>
+                        <outlet property="settingsButtonItem" destination="Kp2-Jx-AfL" id="sk1-9I-sgq"/>
+                        <outlet property="viewChooser" destination="6hS-eO-sTa" id="Nr1-hD-wlG"/>
+                        <segue destination="gDc-sm-yy2" kind="popoverPresentation" identifier="dayPlannerSettingsSegue" popoverAnchorBarButtonItem="Kp2-Jx-AfL" id="Ak6-xz-EdB">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="Tic-j0-v9T" kind="popoverPresentation" identifier="monthPlannerSettingsSegue" popoverAnchorBarButtonItem="Kp2-Jx-AfL" id="1sR-dV-I7q">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XRx-MN-2Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7CX-DX-AlJ">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </objects>
+            <point key="canvasLocation" x="495" y="-1560"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WxE-et-L5N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rig-xm-09W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X2t-X0-HQW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2hR-lJ-uEz" kind="relationship" relationship="rootViewController" id="N7X-Uz-i3c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rwy-RQ-TD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317" y="-1560"/>
+        </scene>
+        <!--dayPlannerSettings-->
+        <scene sceneID="zd5-VN-CWY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="settings" referencedIdentifier="dayPlannerSettings" id="gDc-sm-yy2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EkD-hj-edJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343.5" y="-1091"/>
+        </scene>
+        <!--monthPlannerSettings-->
+        <scene sceneID="741-C4-Lch">
+            <objects>
+                <viewControllerPlaceholder storyboardName="settings" referencedIdentifier="monthPlannerSettings" id="Tic-j0-v9T" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gR9-vX-vEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="667.5" y="-1091"/>
+        </scene>
+    </scenes>
+</document>
